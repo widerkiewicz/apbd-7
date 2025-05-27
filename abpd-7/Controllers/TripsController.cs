@@ -14,7 +14,8 @@ namespace apbd_7.Controllers
         {
             _dbService = dbService;
         }
-
+        
+        //Get trips with page and pageSize query
         [HttpGet]
         public async Task<IActionResult> GetTrips([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
@@ -26,6 +27,7 @@ namespace apbd_7.Controllers
             return Ok(result);
         }
         
+        //Post client to a trip
         [HttpPost("{id}/clients")]
         public async Task<IActionResult> AssignClientToTrip(int id, [FromBody] AssignClientToTripRequestDTO request)
         {
